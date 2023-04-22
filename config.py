@@ -4,34 +4,35 @@ from pathlib import Path
 
 def open_editor(filename):
     subprocess.run([
-        'urxvt',
-        '-geometry', '60x5',
-        '-name', 'popup-bottom-center',
-        '-e', "vim",
+        'st',
+        '-g', '60x5',
+        '-n', 'popup-bottom-center',
+        '-e', "nvim",
+        "-c", 'normal ll',
+        "-c", 'startinsert',
+        "-c", "highlight Normal ctermbg=016",
         f"{filename}",
     ])
 
-def latex_document(latex):
+def typst_document(typst):
     return r"""
-        \documentclass[12pt,border=12pt]{standalone}
+#set page(
+  width: 10cm,
+  height: auto,
+  margin: (x: 1cm, y: 1cm)
+)
 
-        \usepackage[utf8]{inputenc}
-        \usepackage[T1]{fontenc}
-        \usepackage{textcomp}
-        \usepackage{amsmath, amssymb}
-        \newcommand{\R}{\mathbb R}
+#show math.equation: eq => scale(x: 100%, y: 100%, text(font: "Fira Math", size: 17pt, eq))
+#show text: txt => scale(x: 100%, y: 100%, text(font: "Fira Math", size: 12pt, txt))
 
-        \begin{document}
-    """ + latex + r"\end{document}"
+""" + typst
 
 config = {
     # For example '~/.config/rofi/ribbon.rasi' or None
     'rofi_theme': None,
     # Font that's used to add text in inkscape
-    'font': 'monospace',
-    'font_size': 10,
     'open_editor': open_editor,
-    'latex_document': latex_document,
+    'typst_document': typst_document,
 }
 
 

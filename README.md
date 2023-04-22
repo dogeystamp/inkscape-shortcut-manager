@@ -1,5 +1,19 @@
 # Inkscape shortcut manager
 
+This is a fork of [Gille Castel's Inkscape shortcut manager](https://github.com/gillescastel/inkscape-shortcut-manager).
+I've practically gutted out the LaTeX parts so I can use [Typst](https://github.com/typst/typst) instead.
+
+Requirements:
+- Typst
+- `Xlib` python library to intercept keyboard events
+- `typst` and `pdf2svg` to render Typst in Inkscape
+- `xclip` to access the clipboard
+- `rofi` for a selection dialog when saving styles and objects
+
+**The following is the original README from Gilles Castel:**
+
+# Inkscape shorcut manager
+
 *A shortcut manager that speeds up drawing (mathematical) figures in [Inkscape](https://inkscape.org/).*
 
 ## Problem

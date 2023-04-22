@@ -40,7 +40,10 @@ class Manager():
         self.disp.sync()
 
     def grab(self):
-        self.inkscape.grab_key(X.AnyKey, X.AnyModifier, True, X.GrabModeAsync, X.GrabModeAsync)
+        for mask in 0, X.ControlMask, X.ShiftMask:
+            self.inkscape.grab_key(X.AnyKey, mask, True, X.GrabModeAsync, X.GrabModeAsync)
+            # works with numlock too
+            self.inkscape.grab_key(X.AnyKey, mask | X.Mod2Mask, True, X.GrabModeAsync, X.GrabModeAsync)
 
         # Ungrab window manager shortcuts (Super + ...)
         self.inkscape.ungrab_key(self.string_to_keycode('Super_L'), X.AnyModifier, True)
