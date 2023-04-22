@@ -4,11 +4,14 @@ This is a fork of [Gille Castel's Inkscape shortcut manager](https://github.com/
 I've practically gutted out the LaTeX parts so I can use [Typst](https://github.com/typst/typst) instead.
 
 Requirements:
-- Typst
 - `Xlib` python library to intercept keyboard events
 - `typst` and `pdf2svg` to render Typst in Inkscape
 - `xclip` to access the clipboard
 - `rofi` for a selection dialog when saving styles and objects
+
+It should be noted that Inkscape does not allow rendering to PDF+Typst like it can for LaTeX.
+This means that all text has to be baked into the SVG
+(and it therefore might not align with the Typst document's font.)
 
 **The following is the original README from Gilles Castel:**
 
