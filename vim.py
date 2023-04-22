@@ -35,7 +35,7 @@ def open_vim(self, compile_latex):
         )
 
         if not os.path.exists(f"{m.name}.pdf"):
-            printf("Something screwed up in the compilation process")
+            print("Something screwed up in the compilation process")
             return
 
         subprocess.run(
