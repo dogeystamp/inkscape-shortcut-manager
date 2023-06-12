@@ -6,7 +6,7 @@ def open_editor(filename):
     subprocess.run([
         'st',
         '-g', '60x5',
-        '-n', 'popup-bottom-center',
+        '-c', 'popup-bottom-center',
         '-e', "nvim",
         "-c", 'normal ll',
         "-c", 'startinsert',
