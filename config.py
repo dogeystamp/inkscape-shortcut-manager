@@ -22,9 +22,6 @@ def typst_document(typst):
   margin: (x: 1cm, y: 1cm)
 )
 
-#show math.equation: eq => scale(x: 100%, y: 100%, text(font: "Fira Math", size: 17pt, eq))
-#show text: txt => scale(x: 100%, y: 100%, text(font: "Fira Math", size: 12pt, txt))
-
 """ + typst
 
 config = {
