@@ -28,7 +28,7 @@ def open_vim(self, compile_latex):
 
         working_directory = tempfile.gettempdir()
         subprocess.run(
-            ['typst', 'compile', m.name],
+            ['typst', 'compile', '--root', os.path.dirname(f.name) , m.name],
             cwd=working_directory,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
